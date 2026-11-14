@@ -720,18 +720,55 @@
                         </div>
                     </div>
 
-                    <!-- Embedded Artifact Dropzone -->
-                    <div class="border-2 border-dashed border-slate-300 rounded-2xl bg-slate-50 p-8 sm:p-12 text-center">
-                        <div class="max-w-md mx-auto space-y-3">
-                            <div
-                                class="w-14 h-14 rounded-full bg-white shadow-sm border border-slate-200 flex items-center justify-center mx-auto text-navy-800 text-2xl">
-                                <i class="fa-solid fa-laptop-code"></i>
-                            </div>
-                            <h3 class="font-bold text-slate-800 text-base sm:text-lg">[EMBED TRANSFORMATIVE LEARNING INTERVIEW ARTIFACT HERE]</h3>
-                            <p class="text-xs sm:text-sm text-slate-500">
-                                Embed your interview paper, presentation slides, or video/audio recording directly here via Google Drive (with permissions set to "Anyone with the link").
-                            </p>
+                    <!-- Embedded Video Artifact -->
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4 sm:p-6 space-y-4">
+                        <div>
+                            <h3 class="font-bold text-slate-800">Transformative Learning Interview Video</h3>
+                            <p class="text-sm text-slate-500">Select the thumbnail to play the video.</p>
                         </div>
+                        <div class="aspect-video overflow-hidden rounded-lg border border-slate-300 bg-slate-900">
+                            <button type="button" onclick="loadVideo(this)" data-video-id="0cBi0ovc0vM"
+                                class="group relative block h-full w-full cursor-pointer"
+                                aria-label="Play Transformative Learning Interview video">
+                                <img src="https://img.youtube.com/vi/0cBi0ovc0vM/hqdefault.jpg"
+                                    alt="Video thumbnail: Transformative Learning Interview"
+                                    class="h-full w-full object-cover">
+                                <span
+                                    class="absolute inset-0 flex items-center justify-center bg-black/20 transition group-hover:bg-black/35">
+                                    <span
+                                        class="flex h-16 w-16 items-center justify-center rounded-full bg-red-600 text-white shadow-lg">
+                                        <i class="fa-solid fa-play ml-1" aria-hidden="true"></i>
+                                    </span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Embedded PDF Artifact -->
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4 sm:p-6 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                            <div>
+                                <h3 class="font-bold text-slate-800">Transformative Learning Interview Project</h3>
+                                <p class="text-sm text-slate-500">Scroll within the viewer to read the PDF.</p>
+                            </div>
+                            <a href="./Transformative%20Learning%20Interview%20Project%201.pdf"
+                                download="Transformative Learning Interview Project 1.pdf"
+                                class="inline-flex items-center justify-center gap-2 rounded-lg bg-navy-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-800 focus:ring-offset-2">
+                                <i class="fa-solid fa-download" aria-hidden="true"></i>
+                                Download PDF
+                            </a>
+                        </div>
+                        <iframe src="./Transformative%20Learning%20Interview%20Project%201.pdf"
+                            title="Transformative Learning Interview Project PDF"
+                            class="w-full h-[70vh] min-h-[28rem] rounded-lg border border-slate-300 bg-white"
+                            loading="lazy">
+                            <p class="p-4 text-sm text-slate-600">
+                                Your browser cannot display embedded PDFs.
+                                <a href="./Transformative%20Learning%20Interview%20Project%201.pdf"
+                                    download="Transformative Learning Interview Project 1.pdf"
+                                    class="font-semibold text-navy-800 underline">Download the PDF</a>.
+                            </p>
+                        </iframe>
                     </div>
                 </div>
 
@@ -1012,6 +1049,18 @@
             function toggleMobileMenu() {
                 const menu = document.getElementById('mobile-menu');
                 menu.classList.toggle('hidden');
+            }
+
+            // Replace the video thumbnail with the YouTube player when selected
+            function loadVideo(button) {
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube-nocookie.com/embed/${button.dataset.videoId}?autoplay=1&rel=0`;
+                iframe.title = 'Transformative Learning Interview video';
+                iframe.className = 'h-full w-full';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                iframe.allowFullscreen = true;
+                iframe.loading = 'lazy';
+                button.replaceWith(iframe);
             }
 
             // Show toast helper
