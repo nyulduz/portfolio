@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+    <html lang="en" class="scroll-smooth">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MA EDIN Capstone ePortfolio | Yulduz Nuriddinova</title>
+        <!-- Load Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Load Google Fonts: Inter & Merriweather for scholarly elegance -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet">
+        <!-- Load Font Awesome for clean academic icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Inter', 'sans-serif'],
+                            serif: ['Merriweather', 'serif'],
+                        },
+                        colors: {
+                            navy: {
+                                800: '#1e3a5f',
+                                900: '#0f233c',
+                            },
+                            slate: {
+                                850: '#1e293b',
+                            },
+                            gold: {
+                                500: '#d97706',
+                                600: '#b45309',
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+        <!-- Main Website Navigation Bar -->
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Site Title / Branding -->
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-9 h-9 rounded-lg bg-navy-800 text-white flex items-center justify-center font-serif font-bold text-lg shadow-sm">
+                            YN
+                        </div>
+                        <div>
+                            <span class="font-bold text-navy-900 text-sm sm:text-base block leading-tight">Yulduz
+                                Nuriddinova</span>
+                            <span class="text-xs text-slate-500 block">MA in Education &amp; Innovation (EDIN 6100)</span>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Navigation Links -->
+                    <nav class="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
+                        <button onclick="switchTab('home')" data-nav="home"
+                            class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition">Welcome</button>
+                        <button onclick="switchTab('matrix')" data-nav="matrix"
+                            class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition">Competency Matrix</button>
+                        <button onclick="switchTab('sec1')" data-nav="sec1"
+                            class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition">Section 1</button>
+                        <button onclick="switchTab('sec2')" data-nav="sec2"
+                            class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition">Section 2</button>
+                        <button onclick="switchTab('sec3')" data-nav="sec3"
+                            class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition">Section 3</button>
+                        <button onclick="switchTab('sec4')" data-nav="sec4"
+                            class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition">Section 4</button>
+                        <button onclick="switchTab('sec5')" data-nav="sec5"
+                            class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition">Section 5</button>
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="lg:hidden flex items-center">
+                        <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
+                            class="p-2.5 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none"
+                            aria-label="Open menu">
+                            <i class="fa-solid fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div id="mobile-menu"
+                class="hidden lg:hidden bg-white border-t border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+                <button onclick="switchTab('home'); toggleMobileMenu();" data-nav="home"
+                    class="mobile-nav-btn w-full text-left block px-3 py-2.5 rounded-lg text-base font-medium">Welcome
+                    (Home)</button>
+                <button onclick="switchTab('matrix'); toggleMobileMenu();" data-nav="matrix"
+                    class="mobile-nav-btn w-full text-left block px-3 py-2.5 rounded-lg text-base font-medium">Competency
+                    Alignment Matrix</button>
+                <button onclick="switchTab('sec1'); toggleMobileMenu();" data-nav="sec1"
+                    class="mobile-nav-btn w-full text-left block px-3 py-2.5 rounded-lg text-base font-medium">Section 1:
+                    Creativity &amp; Innovation</button>
+                <button onclick="switchTab('sec2'); toggleMobileMenu();" data-nav="sec2"
+                    class="mobile-nav-btn w-full text-left block px-3 py-2.5 rounded-lg text-base font-medium">Section 2:
+                    Instructional Methods &amp; Tech</button>
+                <button onclick="switchTab('sec3'); toggleMobileMenu();" data-nav="sec3"
+                    class="mobile-nav-btn w-full text-left block px-3 py-2.5 rounded-lg text-base font-medium">Section 3:
+                    Leadership &amp; Collaboration (Stub)</button>
+                <button onclick="switchTab('sec4'); toggleMobileMenu();" data-nav="sec4"
+                    class="mobile-nav-btn w-full text-left block px-3 py-2.5 rounded-lg text-base font-medium">Section 4:
+                    Prof. Development (Stub)</button>
+                <button onclick="switchTab('sec5'); toggleMobileMenu();" data-nav="sec5"
+                    class="mobile-nav-btn w-full text-left block px-3 py-2.5 rounded-lg text-base font-medium">Section 5:
+                    Future Directions (Stub)</button>
+            </div>
+        </header>
+
+        <!-- Main Content Container -->
+        <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+            <!-- ===================================================================== -->
+            <!-- PAGE 1: WELCOME PAGE (HOME)                                           -->
+            <!-- ===================================================================== -->
+            <section id="page-home" class="page-section space-y-10">
+                <!-- Hero Banner -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div
+                        class="bg-gradient-to-r from-navy-900 via-navy-800 to-slate-800 px-6 py-10 sm:px-12 sm:py-14 text-white">
+                        <div class="max-w-3xl">
+                            <span
+                                class="inline-block px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-semibold tracking-wider uppercase mb-4">
+                                Master of Arts in Education &amp; Innovation • Capstone ePortfolio
+                            </span>
+                            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight mb-4">
+                                Yulduz Nuriddinova
+                            </h1>
+                            <p class="text-lg sm:text-xl text-slate-200 font-light">
+                                Educator, Extracurricular Coordinator &amp; Graduate Scholar in Education and Innovation
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Profile & Purpose Statement Grid -->
+                    <div class="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <!-- Left Column: Professional Photo -->
+                        <div class="lg:col-span-4 flex flex-col items-center text-center">
+                            <div id="photo-container"
+                                class="w-56 h-56 sm:w-64 sm:h-64 rounded-2xl bg-slate-100 shadow-inner overflow-hidden">
+                                <img id="profile-img" src="./profile_pic.png" alt="Yulduz Nuriddinova"
+                                    class="w-full h-full object-cover rounded-2xl">
+                            </div>
+
+                            <div
+                                class="mt-3 w-full max-w-xs bg-slate-50 rounded-xl p-3 border border-slate-200 text-xs text-slate-600">
+                                <p class="font-semibold text-navy-900">EDIN 6100: Integrated Studies</p>
+                                <p>Education &amp; Innovation Capstone</p>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Purpose Statement & Bio -->
+                        <div class="lg:col-span-8 space-y-6">
+                            <!-- Mandatory Purpose Statement -->
+                            <div class="bg-amber-50/70 border-l-4 border-amber-500 rounded-r-xl p-5 sm:p-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h2 class="text-sm font-bold uppercase tracking-wider text-amber-800">Portfolio Purpose
+                                        Statement</h2>
+                                    <button onclick="copyText('purpose-text', this)"
+                                        class="text-xs text-amber-700 hover:text-amber-900 font-medium flex items-center gap-1 cursor-pointer">
+                                        <i class="fa-regular fa-copy"></i> Copy Text
+                                    </button>
+                                </div>
+                                <p id="purpose-text"
+                                    class="text-slate-800 font-serif text-base sm:text-lg leading-relaxed italic">
+                                    "This ePortfolio documents my academic journey, professional growth, and development as
+                                    an educator and innovator. It showcases selected projects, reflections, and evidence
+                                    demonstrating my achievement of the MA EDIN Program Learning Outcomes."
+                                </p>
+                            </div>
+
+                            <!-- Short Professional Biography -->
+                            <div class="bg-slate-50 rounded-xl p-5 sm:p-6 border border-slate-200">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-lg font-bold text-navy-900 flex items-center gap-2">
+                                        <i class="fa-solid fa-id-card text-navy-800"></i> Professional Biography
+                                    </h3>
+                                    <button onclick="copyText('bio-text', this)"
+                                        class="text-xs text-navy-700 hover:text-navy-900 font-medium flex items-center gap-1 cursor-pointer">
+                                        <i class="fa-regular fa-copy"></i> Copy Text
+                                    </button>
+                                </div>
+                                <p id="bio-text" class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                    Yulduz Nuriddinova is a dedicated educator and graduate scholar pursuing her Master of Arts
+                                    in Education and Innovation (MA EDIN). With a strong foundation in pedagogical
+                                    practice and academic research, her work focuses on cultivating student creativity,
+                                    designing innovative instructional methodologies, and implementing transformative
+                                    learning solutions in educational environments. Through this portfolio, she
+                                    showcases a commitment to lifelong learning, collaborative leadership, and
+                                    evidence-based educational design.
+                                </p>
+                            </div>
+
+                            <!-- Educational Background & Professional Experience Cards -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
+                                    <h4 class="font-bold text-navy-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-graduation-cap text-amber-600"></i> Educational Background
+                                    </h4>
+                                    <ul class="space-y-3 text-sm text-slate-600">
+                                        <li class="border-l-2 border-navy-800 pl-3">
+                                            <span class="font-bold text-slate-900 block">Master of Arts in Education and Innovation (MA EDIN)</span>
+                                            <span class="text-xs text-slate-500 block">Webster University in Tashkent (In Progress)</span>
+                                            <span class="text-xs text-slate-600 mt-1 block">Focus areas: Instructional design, creativity and innovative thinking, transformative learning technologies, and academic research methodologies.</span>
+                                        </li>
+                                        <li class="border-l-2 border-slate-300 pl-3">
+                                            <span class="font-bold text-slate-900 block">Bachelor's Degree in Foreign Languages and Literature</span>
+                                            <span class="text-xs text-slate-500 block">Uzbek State World Languages University (UzSWLU), 2024</span>
+                                            <span class="text-xs text-slate-600 mt-1 block">Foundation in language pedagogy, linguistic studies, and communication.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
+                                    <h4 class="font-bold text-navy-900 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-briefcase text-amber-600"></i> Professional Experience
+                                    </h4>
+                                    <ul class="space-y-3 text-sm text-slate-600">
+                                        <li class="border-l-2 border-navy-800 pl-3">
+                                            <span class="font-bold text-slate-900 block">English Educator &amp; Instructor</span>
+                                            <span class="text-xs text-slate-500 block">Private &amp; Public School Environments (2 Years)</span>
+                                            <span class="text-xs text-slate-600 mt-1 block">Designed and delivered engaging English language curricula across diverse classroom settings, implementing student-centered strategies to enhance language acquisition and critical thinking.</span>
+                                        </li>
+                                        <li class="border-l-2 border-slate-300 pl-3">
+                                            <span class="font-bold text-slate-900 block">Art Club Lead &amp; Extracurricular Coordinator</span>
+                                            <span class="text-xs text-slate-500 block">School Art Club Leadership &amp; Student Engagement</span>
+                                            <span class="text-xs text-slate-600 mt-1 block">Spearheaded and directed a school art club, fostering student creativity, self-expression, and collaborative project-based learning.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Architecture Quick-Navigation Cards -->
+                <div>
+                    <h2 class="text-xl font-bold text-navy-900 mb-4">Portfolio Architecture &amp; Sections</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div onclick="switchTab('matrix')"
+                            class="bg-white p-5 rounded-xl border border-slate-200 hover:border-navy-800 hover:shadow-md transition cursor-pointer group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-navy-800 bg-slate-100 px-2.5 py-1 rounded-md">Overview</span>
+                                <i class="fa-solid fa-arrow-right text-slate-400 group-hover:text-navy-800 transition"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 group-hover:text-navy-800">Competency Alignment Matrix</h3>
+                            <p class="text-xs text-slate-500 mt-1">Maps coursework artifacts to MA EDIN PLOs, ISTE Educator
+                                Standards, and OECD Learning Compass 2030.</p>
+                        </div>
+
+                        <div onclick="switchTab('sec1')"
+                            class="bg-white p-5 rounded-xl border border-slate-200 hover:border-navy-800 hover:shadow-md transition cursor-pointer group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md">Active
+                                    Section</span>
+                                <i class="fa-solid fa-arrow-right text-slate-400 group-hover:text-navy-800 transition"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 group-hover:text-navy-800">Section 1: Creativity &amp;
+                                Innovation</h3>
+                            <p class="text-xs text-slate-500 mt-1">PLO 1: WebQuest artifact, rationale, "What, So What, Now
+                                What" reflection, and APA references.</p>
+                        </div>
+
+                        <div onclick="switchTab('sec2')"
+                            class="bg-white p-5 rounded-xl border border-slate-200 hover:border-navy-800 hover:shadow-md transition cursor-pointer group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md">Active
+                                    Section</span>
+                                <i class="fa-solid fa-arrow-right text-slate-400 group-hover:text-navy-800 transition"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 group-hover:text-navy-800">Section 2: Instructional Methods
+                                &amp; Tech</h3>
+                            <p class="text-xs text-slate-500 mt-1">PLO 2: Transformative Learning Interview artifact,
+                                rationale, structured reflection, and APA references.</p>
+                        </div>
+
+                        <div onclick="switchTab('sec3')"
+                            class="bg-white p-5 rounded-xl border border-slate-200 hover:border-amber-600 hover:shadow-md transition cursor-pointer group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md">Stub
+                                    Page</span>
+                                <i class="fa-solid fa-arrow-right text-slate-400 group-hover:text-amber-600 transition"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900">Section 3: Leadership &amp; Collaboration</h3>
+                            <p class="text-xs text-slate-500 mt-1">PLO 3: Planned showcase for design team leadership and
+                                learning facilitation.</p>
+                        </div>
+
+                        <div onclick="switchTab('sec4')"
+                            class="bg-white p-5 rounded-xl border border-slate-200 hover:border-amber-600 hover:shadow-md transition cursor-pointer group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md">Stub
+                                    Page</span>
+                                <i class="fa-solid fa-arrow-right text-slate-400 group-hover:text-amber-600 transition"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900">Section 4: Prof. Development &amp; Lifelong Learning</h3>
+                            <p class="text-xs text-slate-500 mt-1">PLO 4: Planned showcase for continuous growth and
+                                research-informed practice.</p>
+                        </div>
+
+                        <div onclick="switchTab('sec5')"
+                            class="bg-white p-5 rounded-xl border border-slate-200 hover:border-amber-600 hover:shadow-md transition cursor-pointer group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md">Stub
+                                    Page</span>
+                                <i class="fa-solid fa-arrow-right text-slate-400 group-hover:text-amber-600 transition"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900">Section 5: Future Directions</h3>
+                            <p class="text-xs text-slate-500 mt-1">Capstone synthesis of future professional goals and
+                                sustained educational innovation.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================== -->
+            <!-- PAGE 2: COMPETENCY ALIGNMENT MATRIX                                   -->
+            <!-- ===================================================================== -->
+            <section id="page-matrix" class="page-section hidden space-y-8">
+                <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200">
+                    <div class="border-b border-slate-200 pb-6 mb-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Standards &amp; Outcomes
+                            Mapping</span>
+                        <h1 class="text-2xl sm:text-3xl font-serif font-bold text-navy-900 mt-1">Competency Alignment Matrix
+                        </h1>
+                        <p class="text-slate-600 mt-2 text-sm sm:text-base max-w-3xl">
+                            This matrix aligns selected graduate coursework artifacts with the four <strong>MA EDIN Program
+                                Learning Outcomes (PLOs)</strong> and two external professional frameworks: the <strong>ISTE
+                                Educator Standards</strong> and the <strong>OECD Learning Compass 2030
+                                Competencies</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Responsive Table Wrapper -->
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                        <table class="min-w-full divide-y divide-slate-200 text-left text-sm">
+                            <thead class="bg-navy-900 text-white">
+                                <tr>
+                                    <th scope="col" class="px-5 py-4 font-semibold w-1/4">Artifact / Project</th>
+                                    <th scope="col" class="px-5 py-4 font-semibold w-1/4">MA EDIN Program Learning Outcome
+                                    </th>
+                                    <th scope="col" class="px-5 py-4 font-semibold w-1/4">ISTE Educator Standards</th>
+                                    <th scope="col" class="px-5 py-4 font-semibold w-1/4">OECD Learning Compass 2030
+                                        Competencies</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white">
+                                <!-- Row 1: PLO 1 -->
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-bold text-navy-900 block">WebQuest: Job Hunting Abroad</span>
+                                        <p class="text-xs text-slate-500 mt-1">Course: EDIN 5461 – Curriculum: Creativity and Design</p>
+                                        <button onclick="switchTab('sec1')"
+                                            class="mt-2 text-xs font-medium text-navy-800 hover:underline inline-flex items-center gap-1 cursor-pointer">
+                                            View in Section 1 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </button>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-bold text-navy-900 block mb-1">PLO 1: Creativity &amp; Innovative Thinking</span>
+                                        <p class="text-xs text-slate-600">Promote and cultivate creativity and innovative thinking for learning, service, and leadership (also connects to PLO 2 interdisciplinary problem-solving).</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-semibold text-slate-800 block mb-1">2.5 Designer (2.5.b)</span>
+                                        <p class="text-xs text-slate-600">Design authentic, learner-driven activities and environments that recognize and accommodate learner variability.</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-semibold text-slate-800 block mb-1">Creating New Value; Taking Responsibility</span>
+                                        <p class="text-xs text-slate-600">Developing innovative solutions to authentic challenges and fostering independent learner agency.</p>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 2: PLO 2 -->
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-bold text-navy-900 block">Transformative Learning Interview: Educator Professional Experiences</span>
+                                        <p class="text-xs text-slate-500 mt-1">Course: EDIN 5624 – Transformative Learning</p>
+                                        <button onclick="switchTab('sec2')"
+                                            class="mt-2 text-xs font-medium text-navy-800 hover:underline inline-flex items-center gap-1 cursor-pointer">
+                                            View in Section 2 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </button>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-bold text-navy-900 block mb-1">PLO 2: Instructional Methods &amp; Transformative Learning</span>
+                                        <p class="text-xs text-slate-600">Apply instructional methods, technology, transformative learning, and interdisciplinary problem-solving (also connects to PLO 3 &amp; PLO 4 reflective growth).</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-semibold text-slate-800 block mb-1">2.1 Learner (2.1.c)</span>
+                                        <p class="text-xs text-slate-600">Stay current with research that supports improved student learning outcomes and critically reflect on professional practice.</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-semibold text-slate-800 block mb-1">Reconciling Tensions &amp; Dilemmas; Taking Responsibility</span>
+                                        <p class="text-xs text-slate-600">Examining disorienting dilemmas, shifting assumptions, and adapting pedagogy to support diverse learners.</p>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 3: PLO 3 (Planned / Future) -->
+                                <tr class="bg-slate-50/60 hover:bg-slate-50 transition">
+                                    <td class="px-5 py-4 align-top">
+                                        <span
+                                            class="inline-block bg-amber-100 text-amber-800 font-mono text-xs px-2 py-0.5 rounded font-semibold mb-1">[FUTURE ARTIFACT PLACEHOLDER]</span>
+                                        <p class="text-xs text-slate-600 font-medium mt-1">Planned: Teaching Module for Transformative Learning Project</p>
+                                        <p class="text-xs text-slate-400 mt-0.5">To be added in Section 3</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-bold text-navy-900 block mb-1">PLO 3: Design Team Leadership &amp; Learning Facilitation</span>
+                                        <p class="text-xs text-slate-600">Exhibit design team leadership and effective learning facilitation across stakeholder groups.</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-semibold text-slate-800 block mb-1">2.2 Leader / 2.4 Collaborator / 2.6 Facilitator</span>
+                                        <p class="text-xs text-slate-600">Foster learner ownership of learning and collaborate with colleagues to improve practice.</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-semibold text-slate-800 block mb-1">Co-Agency with Peers &amp; Community; Taking Responsibility</span>
+                                        <p class="text-xs text-slate-600">Collaborative leadership and shared accountability for educational outcomes.</p>
+                                    </td>
+                                </tr>
+
+                                <!-- Row 4: PLO 4 (Planned / Future) -->
+                                <tr class="bg-slate-50/60 hover:bg-slate-50 transition">
+                                    <td class="px-5 py-4 align-top">
+                                        <span
+                                            class="inline-block bg-amber-100 text-amber-800 font-mono text-xs px-2 py-0.5 rounded font-semibold mb-1">[FUTURE ARTIFACT PLACEHOLDER]</span>
+                                        <p class="text-xs text-slate-400 mt-1">To be added in Section 4</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-bold text-navy-900 block mb-1">PLO 4: Lifelong Learning &amp; Collaborative Leadership</span>
+                                        <p class="text-xs text-slate-600">Demonstrate continuous professional growth, research-informed practice, and lifelong learning.</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-semibold text-slate-800 block mb-1">2.1 Learner / 2.7 Analyst</span>
+                                        <p class="text-xs text-slate-600">Engage in ongoing professional learning networks and use evidence to refine instruction.</p>
+                                    </td>
+                                    <td class="px-5 py-4 align-top">
+                                        <span class="font-semibold text-slate-800 block mb-1">Anticipation–Action–Reflection (AAR) Cycle</span>
+                                        <p class="text-xs text-slate-600">Continuous iterative learning and professional self-renewal.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600">
+                        <strong>Rubric Alignment Note:</strong> The rubric requires <em>"MA EDIN and Two (2) Other Sets of Competencies Represented"</em> (30 pts). By mapping your artifacts to <strong>MA EDIN PLOs</strong>, <strong>ISTE Educator Standards</strong>, and the <strong>OECD Learning Compass 2030</strong>, you satisfy all three required frameworks simultaneously.
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================== -->
+            <!-- PAGE 3: SECTION 1 — CREATIVITY, INNOVATION & PROBLEM-SOLVING          -->
+            <!-- ===================================================================== -->
+            <section id="page-sec1" class="page-section hidden space-y-8">
+                <!-- Section Header -->
+                <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200">
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                        <span class="bg-navy-800 text-white text-xs font-bold px-3 py-1 rounded-full">Section 1</span>
+                        <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full">Focus: MA
+                            EDIN PLO 1</span>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-serif font-bold text-navy-900">
+                        Creativity, Innovation, and Instructional Problem-Solving
+                    </h1>
+                    <p class="text-sm font-medium text-slate-500 mt-1">
+                        Program Learning Outcome 1: Promote and cultivate creativity and innovative thinking for learning, service, and leadership.
+                    </p>
+
+                    <!-- Section Introduction -->
+                    <div class="mt-6 bg-slate-50 rounded-xl p-5 border border-slate-200">
+                        <h2 class="text-sm font-bold uppercase tracking-wider text-navy-900 mb-2">Section Introduction</h2>
+                        <div class="text-slate-700 text-sm sm:text-base leading-relaxed space-y-3">
+                            <p>Creativity and innovation are essential components of effective education and meaningful learning. As an education professional and administrator, I believe that learning should extend beyond traditional instructional approaches and provide opportunities for individuals to explore new ideas, think critically, and address real-world challenges.</p>
+                            <p>This section of my ePortfolio focuses on <strong>MA EDIN Program Learning Outcome 1</strong>: <em>Promote and cultivate creativity and innovative thinking for learning, service, and leadership.</em></p>
+                            <p>Through my coursework, I have explored how creative instructional approaches can make learning more engaging, relevant, and connected to real-life situations. My featured project, <em>WebQuest: Job Hunting Abroad</em>, demonstrates my ability to design an inquiry-based learning experience using structured activities and relevant resources to encourage independent exploration, critical thinking, and practical problem-solving.</p>
+                            <p>This project represents my understanding of innovation as the ability to develop meaningful learning experiences that connect educational concepts with real-world needs. It also reflects my professional commitment to encouraging creativity, supporting innovative instructional practices, and contributing to continuous improvement in education.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-page / Block A: Artifact & Rationale -->
+                <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200 space-y-6">
+                    <div
+                        class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Artifact
+                                Showcase</span>
+                            <h2 class="text-xl font-bold text-navy-900">Artifact 1: WebQuest – Job Hunting Abroad: An
+                                Innovative Approach to Global Career Exploration</h2>
+                        </div>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg font-medium">
+                            Course: EDIN 5461 – Curriculum: Creativity and Design
+                        </span>
+                    </div>
+
+                    <!-- Artifact Rationale -->
+                    <div class="bg-amber-50/60 rounded-xl p-5 border border-amber-200/80">
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-amber-900 mb-2">
+                            Artifact Rationale (Context &amp; Selection Justification)
+                        </h3>
+                        <div class="text-slate-700 text-sm sm:text-base leading-relaxed space-y-3">
+                            <p>The <em>Job Hunting Abroad</em> WebQuest is an instructional project I developed to provide learners with an engaging and structured opportunity to explore international employment opportunities. The project incorporates organized learning activities and relevant educational resources that guide learners through researching global job markets, exploring employment possibilities, and understanding the challenges associated with pursuing careers abroad.</p>
+                            <p>I selected this artifact because it demonstrates my ability to apply creativity and innovative thinking to instructional design by transforming a practical, real-world topic into an inquiry-based learning experience. Rather than relying solely on traditional information delivery, I designed activities that encourage independent exploration, information gathering, critical thinking, and problem-solving. The project connects learning with real-life situations and promotes the application of knowledge beyond the classroom.</p>
+                            <p>This artifact aligns with MA EDIN Program Learning Outcome 1, which emphasizes promoting and cultivating creativity and innovative thinking for learning, service, and leadership. It demonstrates my ability to develop meaningful learning opportunities that connect educational objectives with authentic challenges. It also reflects my professional commitment as an education administrator to encouraging innovative instructional approaches and creating relevant, learner-centered educational experiences.</p>
+                        </div>
+                    </div>
+
+                    <!-- Embedded Artifact Preview -->
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden shadow-sm">
+                        <div class="bg-navy-900 text-white px-5 py-3 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+                            <div class="flex items-center gap-2 font-medium">
+                                <i class="fa-solid fa-globe text-amber-400"></i>
+                                <span>WebQuest: Job Hunting Abroad</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span id="sec1-webquest-url" class="hidden">https://sites.google.com/view/jobhuntingabroad/home-page</span>
+                                <button onclick="copyText('sec1-webquest-url', this)"
+                                    class="bg-white/15 hover:bg-white/25 text-white px-2.5 py-1 rounded-md text-xs transition cursor-pointer">
+                                    <i class="fa-regular fa-copy mr-1"></i>Copy URL
+                                </button>
+                                <a href="https://sites.google.com/view/jobhuntingabroad/home-page" target="_blank" rel="noopener noreferrer"
+                                    class="bg-amber-500 hover:bg-amber-600 text-navy-900 font-semibold px-3 py-1 rounded-md text-xs transition inline-flex items-center gap-1">
+                                    Open Full Site <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bg-white">
+                            <img src="./web_quest.png"
+                                alt="Screenshot of the Job Hunting Abroad WebQuest home page"
+                                class="block w-full h-auto"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-page / Block B: Reflection ("What, So What, Now What") -->
+                <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200 space-y-6">
+                    <div class="border-b border-slate-200 pb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider text-navy-800">Critical Reflection
+                            Narrative</span>
+                        <h2 class="text-xl font-bold text-navy-900">Section 1 Reflection: What, So What, Now What</h2>
+                    </div>
+
+                    <div class="space-y-5">
+                        <!-- WHAT -->
+                        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                            <h3 class="font-bold text-navy-900 text-base mb-2 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-navy-800 text-white text-xs flex items-center justify-center">1</span>
+                                What? (Description of the Experience &amp; Creative Process)
+                            </h3>
+                            <div class="text-sm text-slate-700 leading-relaxed space-y-3">
+                                <p>For my Section 1 artifact, I selected my WebQuest project, titled <em>Job Hunting Abroad</em>. This project involved designing a complete WebQuest with learning activities and educational resources focused on exploring international employment opportunities. The purpose was to create an engaging, inquiry-based learning experience that connects educational content with a practical, real-world challenge.</p>
+                                <p>The design process required me to organize the topic into meaningful learning activities and identify relevant resources that could guide learners through the exploration of international job opportunities. Rather than presenting information as a traditional lecture or simple reading assignment, I developed a structured learning experience that encourages learners to investigate information, explore possibilities, and develop a deeper understanding of the topic.</p>
+                                <p>The WebQuest approach is grounded in inquiry-oriented learning. Dodge (1995) introduced WebQuests as activities in which learners use Internet-based resources to investigate questions and complete meaningful tasks. March (2004) further explained that effective WebQuests connect authentic tasks with online resources to promote critical thinking. This approach also supports active knowledge construction, allowing learners to engage with information rather than simply receive it (O'Bannon, 2000).</p>
+                                <p>Creativity played an important role in developing this project. Runco and Jaeger (2012) explain that creativity involves both originality and usefulness. In this project, I applied that understanding by developing a learning experience around a practical topic that learners could connect to real-life career decisions. The project also reflects design-oriented thinking, which encourages educators to approach instructional challenges through flexible and creative processes (Henriksen et al., 2017).</p>
+                            </div>
+                        </div>
+
+                        <!-- SO WHAT -->
+                        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                            <h3 class="font-bold text-navy-900 text-base mb-2 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-navy-800 text-white text-xs flex items-center justify-center">2</span>
+                                So What? (Theoretical Significance &amp; Growth as an Innovator)
+                            </h3>
+                            <div class="text-sm text-slate-700 leading-relaxed space-y-3">
+                                <p>This project is significant because it helped me understand that creativity in education is not limited to producing attractive materials or presenting information in different formats. Creativity involves designing meaningful learning experiences that address authentic needs and encourage learners to think independently.</p>
+                                <p>The WebQuest demonstrates my progress toward MA EDIN Program Learning Outcome 1: promoting and cultivating creativity and innovative thinking for learning, service, and leadership. By selecting an authentic topic and developing structured activities and resources, I created an opportunity for learners to connect academic learning with practical challenges. Creativity is especially valuable when educational experiences encourage learners to develop original and useful responses to real-world situations (Henriksen et al., 2017; Runco &amp; Jaeger, 2012).</p>
+                                <p>The project also connects to inquiry-based learning. Dodge (1995) and March (2004) emphasize the importance of guiding learners toward meaningful tasks through carefully selected resources. Inquiry-oriented instruction encourages learners to investigate information, develop questions, and construct their own understanding. Bell et al. (2005) explain that inquiry activities can be designed at different levels depending on how much responsibility learners have for asking questions and developing explanations. Furthermore, Liang and Fung (2020) demonstrate that WebQuest-based instruction fosters exploratory talk and critical thinking among students.</p>
+                                <p>Furthermore, the WebQuest reflects principles of constructivist learning, in which learners actively develop knowledge through engagement with information and meaningful tasks. Hmelo-Silver (2004) explains that problem-centered learning can support flexible knowledge, problem-solving, and self-directed learning. Similarly, Anderson and Krathwohl (2001) emphasize the importance of higher-order cognitive processes, including analyzing, evaluating, and creating. These processes are relevant to a learning activity that asks learners to explore employment information and consider possible career opportunities.</p>
+                                <p>The project also connects with the ISTE Educator Standards, particularly the Designer competency (Standard 2.5), because it involves developing authentic learning activities that support meaningful learner engagement (International Society for Technology in Education [ISTE], n.d.). The OECD Learning Compass 2030 also emphasizes the importance of creating new value, taking responsibility, and developing competencies that prepare learners to navigate unfamiliar situations (Organisation for Economic Co-operation and Development [OECD], 2019).</p>
+                                <p>As an education administrator and leader, this experience helped me recognize the importance of moving beyond traditional instructional approaches. Educational innovation requires understanding learners' needs, identifying meaningful challenges, and creating opportunities for active participation. Henriksen and Richardson (2017) emphasize that educators can approach educational problems as designers who use creative thinking to develop practical solutions. This perspective strengthened my understanding of how instructional creativity can contribute to improved educational experiences.</p>
+                                <p>Overall, this project demonstrates my growing ability to connect creativity, inquiry, and instructional design. It helped me recognize that innovative education should not simply deliver information; it should encourage learners to explore, question, analyze, and apply knowledge to situations beyond the classroom.</p>
+                            </div>
+                        </div>
+
+                        <!-- NOW WHAT -->
+                        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                            <h3 class="font-bold text-navy-900 text-base mb-2 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-navy-800 text-white text-xs flex items-center justify-center">3</span>
+                                Now What? (Future Application in Teaching &amp; Leadership)
+                            </h3>
+                            <div class="text-sm text-slate-700 leading-relaxed space-y-3">
+                                <p>The experience of designing the WebQuest will influence how I approach future educational planning, instructional development, and organizational leadership. I intend to apply inquiry-based and learner-centered strategies when developing educational activities and supporting teachers in creating more engaging learning environments.</p>
+                                <p>First, I will continue to incorporate authentic, real-world topics into instructional activities. Learners benefit when they can connect academic concepts to practical situations, explore relevant resources, and apply knowledge to meaningful challenges. Future instructional projects will therefore include opportunities for investigation, critical thinking, reflection, and problem-solving.</p>
+                                <p>Second, I will encourage educators and instructional teams to approach curriculum development creatively. Design thinking can help educators identify learner needs, reconsider traditional approaches, and develop more effective learning experiences (Henriksen et al., 2017). As an education leader, I can support this process by encouraging collaboration, sharing instructional resources, and creating opportunities for teachers to experiment with new approaches.</p>
+                                <p>Third, I will use the OECD Learning Compass 2030 as a reference when considering how educational activities can develop learner agency, creativity, and responsibility (OECD, 2019). I want learners to become more independent, confident, and capable of making informed decisions in unfamiliar situations.</p>
+                                <p>Finally, I recognize that designing an instructional activity is only one part of educational innovation. It is also important to evaluate whether the learning experience achieves its intended goals. In future projects, I will pay greater attention to learner feedback, assessment criteria, and opportunities for continuous improvement. This approach will help me make instructional decisions based on evidence rather than assumptions.</p>
+                                <p>Through this project, I have developed a stronger appreciation for creativity as a practical component of educational leadership and instructional design. My goal is to continue creating learning opportunities that connect knowledge with real-world challenges, encourage independent thinking, and prepare learners to participate confidently in an increasingly interconnected world.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- APA 7th Edition Reference List -->
+                    <div class="pt-4 border-t border-slate-200">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-base font-serif font-bold text-navy-900">References</h3>
+                            <button onclick="copyText('sec1-refs', this)"
+                                class="text-xs text-navy-700 hover:text-navy-900 font-medium flex items-center gap-1 cursor-pointer">
+                                <i class="fa-regular fa-copy"></i> Copy APA References
+                            </button>
+                        </div>
+                        <div id="sec1-refs"
+                            class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-xs sm:text-sm text-slate-800 space-y-3 font-serif leading-relaxed">
+                            <p class="pl-8 -indent-8">
+                                Anderson, L. W., &amp; Krathwohl, D. R. (Eds.). (2001). <em>A taxonomy for learning, teaching, and assessing: A revision of Bloom's taxonomy of educational objectives</em>. Longman.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Bell, R. L., Smetana, L., &amp; Binns, I. (2005). Simplifying inquiry instruction: Assessing the inquiry level of classroom activities. <em>The Science Teacher</em>, <em>72</em>(7), 30–33.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Dodge, B. (1995). WebQuests: A technique for Internet-based learning. <em>Distance Educator</em>, <em>1</em>(2), 10–13.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Henriksen, D., &amp; Richardson, C. (2017). Teachers are designers: Addressing problems of practice in education. <em>Phi Delta Kappan</em>, <em>99</em>(2), 36–41. https://doi.org/10.1177/0031721717734187
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Henriksen, D., Richardson, C., &amp; Mehta, R. (2017). Design thinking: A creative approach to educational problems of practice. <em>Thinking Skills and Creativity</em>, <em>26</em>, 140–153. https://doi.org/10.1016/j.tsc.2017.10.001
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Hmelo-Silver, C. E. (2004). Problem-based learning: What and how do students learn? <em>Educational Psychology Review</em>, <em>16</em>(3), 235–266. https://doi.org/10.1023/B:EDPR.0000034022.16470.f3
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                International Society for Technology in Education. (n.d.). <em>ISTE standards: Educators</em>. https://iste.org/standards/educators
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Liang, W., &amp; Fung, D. (2020). Development and evaluation of a WebQuest-based teaching programme: Students’ use of exploratory talk to exercise critical thinking. <em>International Journal of Educational Research</em>, <em>104</em>, Article 101652. https://doi.org/10.1016/j.ijer.2020.101652
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                March, T. (2004). The learning power of WebQuests. <em>Educational Leadership</em>, <em>61</em>(4), 42–47.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                O'Bannon, B. (2000). <em>WebQuests: Creating a constructivist learning environment</em>. University of Tennessee.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Organisation for Economic Co-operation and Development. (2019). <em>OECD future of education and skills 2030: OECD Learning Compass 2030</em>. https://www.oecd.org/en/data/tools/oecd-learning-compass-2030.html
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Runco, M. A., &amp; Jaeger, G. J. (2012). The standard definition of creativity. <em>Creativity Research Journal</em>, <em>24</em>(1), 92–96. https://doi.org/10.1080/10400419.2012.650092
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================== -->
+            <!-- PAGE 4: SECTION 2 — INSTRUCTIONAL METHODS & TECHNOLOGIES              -->
+            <!-- ===================================================================== -->
+            <section id="page-sec2" class="page-section hidden space-y-8">
+                <!-- Section Header -->
+                <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200">
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                        <span class="bg-navy-800 text-white text-xs font-bold px-3 py-1 rounded-full">Section 2</span>
+                        <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full">Focus: MA
+                            EDIN PLO 2</span>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-serif font-bold text-navy-900">
+                        Instructional Methods and Technologies for Transformative Learning
+                    </h1>
+                    <p class="text-sm font-medium text-slate-500 mt-1">
+                        Program Learning Outcome 2: Apply instructional methods, technology, transformative learning, and
+                        interdisciplinary problem-solving.
+                    </p>
+
+                    <!-- Section Introduction -->
+                    <div class="mt-6 bg-slate-50 rounded-xl p-5 border border-slate-200">
+                        <h2 class="text-sm font-bold uppercase tracking-wider text-navy-900 mb-2">Section Introduction</h2>
+                        <div class="text-slate-700 text-sm sm:text-base leading-relaxed space-y-3">
+                            <p>This section highlights my intentional integration of educational technology, evidence-based instructional methodologies, and interdisciplinary learning experiences to support meaningful and transformative learning. It demonstrates my understanding of how innovative instructional approaches can encourage active participation, critical thinking, creativity, collaboration, and real-world problem-solving.</p>
+                            <p>Through my MA Education and Innovation coursework, I have explored how technology and research-informed teaching strategies can enhance learning experiences and address diverse learners' needs. I recognize that technology is most effective when it is purposefully integrated with instructional objectives and meaningful learning activities rather than used simply as a tool for delivering information.</p>
+                            <p>The featured artifact, <em>Transformative Learning Interview</em>, explores how personal and professional experiences can challenge existing assumptions, encourage critical reflection, and transform instructional practices. It highlights the importance of empathy, adaptability, learner-centered instruction, and continuous professional development in creating supportive learning environments.</p>
+                            <p>By connecting transformative learning theory with practical educational experiences, this section demonstrates my developing ability to evaluate instructional approaches, recognize opportunities for innovation, and consider how interdisciplinary perspectives and appropriate technologies can contribute to more engaging and inclusive learning experiences.</p>
+                            <p>Ultimately, this section reflects my commitment to becoming an innovative educational professional who uses evidence-based practices, creativity, and purposeful technology integration to promote transformative learning and meaningful educational change.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-page / Block A: Artifact & Rationale -->
+                <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200 space-y-6">
+                    <div
+                        class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Artifact
+                                Showcase</span>
+                            <h2 class="text-xl font-bold text-navy-900">Artifact 1: Transformative Learning Interview –
+                                Exploring Professional Growth and Changes in Teaching Practice</h2>
+                        </div>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg font-medium">
+                            Course: EDIN 5624 – Transformative Learning
+                        </span>
+                    </div>
+
+                    <!-- Artifact Rationale -->
+                    <div class="bg-amber-50/60 rounded-xl p-5 border border-amber-200/80">
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-amber-900 mb-2">
+                            Artifact Rationale (Context &amp; Selection Justification)
+                        </h3>
+                        <div class="text-slate-700 text-sm sm:text-base leading-relaxed space-y-3">
+                            <p>This artifact represents a coursework project in which I interviewed an educator about their personal and professional experiences with transformative learning. The interview explored how significant life and classroom experiences can challenge existing beliefs, encourage critical reflection, and lead to changes in professional perspectives and teaching practices.</p>
+                            <p>One particularly meaningful experience shared during the interview concerned the educator's first year of teaching. Through classroom challenges and an encouraging interaction with a student, the educator began questioning previous assumptions about effective teaching. This experience led to a shift from perfectionism and teacher-centered instruction toward empathy, reflection, active listening, and learner-centered practices.</p>
+                            <p>I selected this artifact because it demonstrates how transformative learning can influence professional identity, instructional approaches, and relationships with learners. It also highlights the importance of learning from experience, reflecting on challenges, and remaining open to personal and professional growth.</p>
+                            <p>This artifact aligns with MA EDIN Program Learning Outcome 2 by illustrating how reflective and experience-based learning can contribute to the improvement of educational practices. It also connects to my professional interests in educational administration and leadership, particularly the importance of encouraging continuous professional development and creating supportive learning environments.</p>
+                        </div>
+                    </div>
+
+                    <!-- Embedded Artifact Dropzone -->
+                    <div class="border-2 border-dashed border-slate-300 rounded-2xl bg-slate-50 p-8 sm:p-12 text-center">
+                        <div class="max-w-md mx-auto space-y-3">
+                            <div
+                                class="w-14 h-14 rounded-full bg-white shadow-sm border border-slate-200 flex items-center justify-center mx-auto text-navy-800 text-2xl">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-base sm:text-lg">[EMBED TRANSFORMATIVE LEARNING INTERVIEW ARTIFACT HERE]</h3>
+                            <p class="text-xs sm:text-sm text-slate-500">
+                                Embed your interview paper, presentation slides, or video/audio recording directly here via Google Drive (with permissions set to "Anyone with the link").
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-page / Block B: Reflection ("What, So What, Now What") -->
+                <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200 space-y-6">
+                    <div class="border-b border-slate-200 pb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider text-navy-800">Critical Reflection
+                            Narrative</span>
+                        <h2 class="text-xl font-bold text-navy-900">Section 2 Reflection: What, So What, Now What</h2>
+                    </div>
+
+                    <div class="space-y-5">
+                        <!-- WHAT -->
+                        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                            <h3 class="font-bold text-navy-900 text-base mb-2 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-navy-800 text-white text-xs flex items-center justify-center">1</span>
+                                What? (Instructional Design &amp; Technological Integration)
+                            </h3>
+                            <div class="text-sm text-slate-700 leading-relaxed space-y-3">
+                                <p>For this section of my ePortfolio, I selected a <em>Transformative Learning Interview</em> that explores how meaningful experiences can change an educator's beliefs, professional identity, and instructional practices. The interview focuses on a teacher's experience during her first year of teaching and how challenging classroom situations encouraged her to reconsider her understanding of effective teaching. Initially, the interviewee believed that successful teaching depended on carefully planned lessons, classroom management, academic performance, and maintaining the image of a perfect teacher. However, when she experienced difficulties engaging students, she began questioning her abilities and professional assumptions. An unexpected conversation with a quiet student became a turning point that helped her recognize the importance of relationships, empathy, student confidence, and meaningful learning experiences.</p>
+                                <p>I selected this artifact because it demonstrates how educators can learn from authentic experiences, critically examine their instructional approaches, and develop more effective ways of supporting diverse learners. The interview illustrates a transition from teacher-centered instruction toward a more student-centered learning environment in which students are encouraged to participate, communicate, express ideas, and take risks without fear of making mistakes.</p>
+                                <p>The instructional approaches discussed in the interview include reflective practice, learner-centered instruction, supportive classroom communication, emotional engagement, and adapting teaching strategies to students' individual needs. These approaches demonstrate that effective instructional design requires educators to consider not only what students learn but also how they experience the learning process. Dewey (1933) emphasizes the importance of reflective thinking in learning from experience, while Schön (1983) explains how professionals improve their practice through reflection and the reconsideration of their actions.</p>
+                                <p>Although the interview does not directly document the use of digital instructional tools, it provides a foundation for understanding how technology can support transformative learning. For example, digital collaboration platforms, interactive learning activities, online discussion spaces, and multimedia resources can create additional opportunities for students to communicate, collaborate, reflect, and develop new perspectives. The integration of technology should be guided by instructional objectives and learners' needs rather than simply introducing digital tools into the classroom. This understanding is consistent with the importance of connecting instructional approaches with meaningful learning experiences and professional reflection.</p>
+                                <p>Overall, this artifact demonstrates my developing understanding of how reflective teaching, creative instructional strategies, and learner-centered practices contribute to meaningful educational experiences. It also provides an opportunity to consider how educational technologies can be used intentionally to support collaboration, student engagement, and transformative learning.</p>
+                            </div>
+                        </div>
+
+                        <!-- SO WHAT -->
+                        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                            <h3 class="font-bold text-navy-900 text-base mb-2 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-navy-800 text-white text-xs flex items-center justify-center">2</span>
+                                So What? (Transformative Learning Impact &amp; Theory)
+                            </h3>
+                            <div class="text-sm text-slate-700 leading-relaxed space-y-3">
+                                <p>Analyzing this interview helped me understand that transformative learning involves more than acquiring new knowledge or developing additional skills. It requires individuals to question existing assumptions, examine their experiences, and develop new ways of understanding themselves and the world around them. The interview strongly connects to Mezirow's (1997) transformative learning theory, which emphasizes critical reflection and the development of new perspectives. The teacher's challenging classroom experience represents a disorienting dilemma because it challenged her previous beliefs about perfection, classroom control, and professional success.</p>
+                                <p>Kitchenham (2008) explains the evolution of Mezirow's transformative learning theory and the importance of critical reflection in changing established perspectives. This connection is evident when the interviewee begins questioning why she associates student engagement with her personal worth as a teacher and why she believes successful instruction must always follow a perfect plan. Instead of continuing to view classroom challenges as personal failures, she begins recognizing them as opportunities for reflection, adaptation, and professional development.</p>
+                                <p>Cranton (2016) also emphasizes the importance of examining assumptions and supporting perspective transformation through meaningful learning experiences. The interviewee demonstrates this process by reconsidering her beliefs and developing a more flexible understanding of her professional responsibilities. Similarly, Brookfield (2017) explains that critically reflective educators examine the assumptions that influence their instructional decisions. This helped me recognize that educators should continuously evaluate their teaching approaches rather than assume that one instructional method will be effective for every learner.</p>
+                                <p>The interview also demonstrates the relationship between transformative learning and creativity. Creativity in education is not limited to developing new technologies or designing visually attractive classroom activities. It also involves identifying problems, considering alternative perspectives, and developing new approaches to existing challenges. The teacher's movement from perfection-oriented teaching toward a more flexible, empathetic, and learner-centered approach illustrates this type of creative problem-solving. Freire (2000) emphasizes the importance of critical consciousness and meaningful participation in education, reinforcing the idea that learners should be active participants rather than passive recipients of information.</p>
+                                <p>Furthermore, Taylor (1997) examines the theoretical and empirical development of transformative learning and provides an important foundation for understanding how individuals experience changes in their perspectives. This supports my interpretation of the interview as an example of professional transformation through challenging experiences, reflection, and changes in behavior.</p>
+                                <p>The interview also connects to the OECD Learning Compass 2030, which emphasizes competencies such as creating new value, reconciling tensions and dilemmas, and taking responsibility (Organisation for Economic Co-operation and Development [OECD], 2019). The teacher demonstrates these competencies by reconsidering her instructional assumptions, responding creatively to classroom challenges, and taking responsibility for improving her professional practice. Her experience demonstrates that innovation can begin when educators recognize that traditional approaches are not meeting learners' needs and become willing to explore alternative solutions.</p>
+                                <p>One of the most meaningful aspects of the interview is the impact of the teacher's transformation on her students. After changing her teaching philosophy, she noticed that students became more comfortable expressing their ideas, participating in classroom activities, and taking risks. This demonstrates how an educator's professional growth can contribute to a more inclusive and supportive learning environment. Mezirow (1991) explains that transformative learning involves changes in how individuals interpret their experiences, while the interview illustrates how these changes can influence professional decisions and relationships with others.</p>
+                                <p>This artifact directly supports MA EDIN Program Learning Outcome 2 because it demonstrates the importance of reflective thinking, adaptive instructional practices, and creating learning environments that encourage meaningful participation and personal development. It helped me recognize that transformative education is not simply about delivering information more effectively. It is about creating opportunities for learners to develop confidence, question assumptions, solve problems, and apply new understanding to real-life situations.</p>
+                            </div>
+                        </div>
+
+                        <!-- NOW WHAT -->
+                        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                            <h3 class="font-bold text-navy-900 text-base mb-2 flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-navy-800 text-white text-xs flex items-center justify-center">3</span>
+                                Now What? (Scaling &amp; Iterating Future Practice)
+                            </h3>
+                            <div class="text-sm text-slate-700 leading-relaxed space-y-3">
+                                <p>Moving forward, I intend to apply the lessons from this interview to my future educational and professional practice. One of the most important insights I gained is that effective educators must remain open to learning, reflection, feedback, and change. Teaching should not be viewed as a fixed process in which educators simply deliver information. Instead, it should be understood as an ongoing process of evaluating learners' needs, adapting instructional strategies, and creating meaningful learning opportunities.</p>
+                                <p>In my future practice, I want to incorporate more learner-centered instructional strategies that encourage collaboration, critical thinking, creativity, and active participation. I also want to create supportive learning environments in which students feel comfortable expressing their opinions, asking questions, making mistakes, and exploring different solutions. The interview reminded me that students' confidence and sense of belonging can influence their willingness to participate and take responsibility for their learning.</p>
+                                <p>I also plan to integrate educational technologies more intentionally into instructional design. Digital learning platforms, collaborative tools, multimedia resources, and interactive activities can provide opportunities for students to engage with content in different ways. However, I understand that technology alone does not create transformative learning. Its effectiveness depends on how well it supports instructional goals, encourages meaningful participation, and responds to learners' needs.</p>
+                                <p>Dewey's (1933) emphasis on reflective thinking will encourage me to evaluate my instructional experiences and identify opportunities for improvement. Schön's (1983) reflective practitioner approach will also influence how I examine challenges during and after instructional activities. Rather than viewing unsuccessful lessons as failures, I will use them as opportunities to reconsider my decisions and develop more effective teaching strategies.</p>
+                                <p>In addition, I want to continue developing my ability to recognize diverse perspectives and respond to different learning needs. The interview demonstrated that even a brief interaction with a student can challenge an educator's assumptions and create an opportunity for meaningful change. Brookfield (2017) reinforces the importance of critically examining professional assumptions, while Cranton (2016) highlights the value of supporting transformative experiences through intentional educational practice.</p>
+                                <p>Ultimately, I hope to develop instructional approaches that combine creativity, reflective thinking, appropriate technology, and collaboration. I will continue evaluating the effectiveness of these approaches through student feedback, participation, reflection, and learning outcomes. This will allow me to refine and adapt my instructional practices rather than rely on methods simply because they are familiar.</p>
+                                <p>This interview has strengthened my understanding that educational innovation begins with a willingness to question existing practices and consider new possibilities. It has also reinforced my belief that educators have an important responsibility to create learning environments where students can develop academically, socially, and personally. By applying these lessons, I aim to contribute to more meaningful, inclusive, and transformative learning experiences and demonstrate continued growth toward MA EDIN Program Learning Outcome 2.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- APA 7th Edition Reference List -->
+                    <div class="pt-4 border-t border-slate-200">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-base font-serif font-bold text-navy-900">References</h3>
+                            <button onclick="copyText('sec2-refs', this)"
+                                class="text-xs text-navy-700 hover:text-navy-900 font-medium flex items-center gap-1 cursor-pointer">
+                                <i class="fa-regular fa-copy"></i> Copy APA References
+                            </button>
+                        </div>
+                        <div id="sec2-refs"
+                            class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-xs sm:text-sm text-slate-800 space-y-3 font-serif leading-relaxed">
+                            <p class="pl-8 -indent-8">
+                                Brookfield, S. D. (2017). <em>Becoming a critically reflective teacher</em> (2nd ed.). Jossey-Bass.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Cranton, P. (2016). <em>Understanding and promoting transformative learning: A guide to theory and practice</em> (3rd ed.). Stylus Publishing.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Dewey, J. (1933). <em>How we think: A restatement of the relation of reflective thinking to the educative process</em>. D. C. Heath.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Freire, P. (2000). <em>Pedagogy of the oppressed</em> (30th anniversary ed.). Continuum. (Original work published 1970)
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Kitchenham, A. (2008). The evolution of John Mezirow's transformative learning theory. <em>Journal of Transformative Education</em>, <em>6</em>(2), 104–123. https://doi.org/10.1177/1541344608322678
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Mezirow, J. (1991). <em>Transformative dimensions of adult learning</em>. Jossey-Bass.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Mezirow, J. (1997). Transformative learning: Theory to practice. <em>New Directions for Adult and Continuing Education</em>, <em>1997</em>(74), 5–12. https://doi.org/10.1002/ace.7401
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Organisation for Economic Co-operation and Development. (2019). <em>OECD future of education and skills 2030: OECD Learning Compass 2030</em>. https://www.oecd.org/en/data/tools/oecd-learning-compass-2030.html
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Schön, D. A. (1983). <em>The reflective practitioner: How professionals think in action</em>. Basic Books.
+                            </p>
+                            <p class="pl-8 -indent-8">
+                                Taylor, E. W. (1997). Building upon the theoretical debate: A critical review of the empirical studies of Mezirow's transformative learning theory. <em>Adult Education Quarterly</em>, <em>48</em>(1), 34–59. https://doi.org/10.1177/074171369704800104
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================== -->
+            <!-- PAGE 5: SECTION 3 — LEADERSHIP AND COLLABORATION (STUB PAGE)          -->
+            <!-- ===================================================================== -->
+            <section id="page-sec3" class="page-section hidden">
+                <div
+                    class="bg-white rounded-2xl p-8 sm:p-14 shadow-sm border border-slate-200 text-center max-w-3xl mx-auto">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center mx-auto text-2xl mb-5">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <span
+                        class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
+                        Section 3 • Focus: MA EDIN PLO 3
+                    </span>
+                    <h1 class="text-2xl sm:text-3xl font-serif font-bold text-navy-900 mb-4">
+                        Section 3 – Leadership and Collaboration
+                    </h1>
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-left sm:text-center">
+                        <p id="stub-sec3-text" class="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
+                            "Coming Soon: This section will showcase projects and experiences demonstrating leadership,
+                            teamwork, collaboration, stakeholder engagement, and learning facilitation."
+                        </p>
+                        <button onclick="copyText('stub-sec3-text', this)"
+                            class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-navy-800 bg-white border border-slate-300 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition cursor-pointer">
+                            <i class="fa-regular fa-copy"></i> Copy Stub Text
+                        </button>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-100 text-xs text-slate-400">
+                        Planned Architecture: Section Introduction • Embedded Artifact &amp; Rationale • What/So What/Now
+                        What Reflection • APA Reference List
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================== -->
+            <!-- PAGE 6: SECTION 4 — PROFESSIONAL DEVELOPMENT & LIFELONG LEARNING (STUB) -->
+            <!-- ===================================================================== -->
+            <section id="page-sec4" class="page-section hidden">
+                <div
+                    class="bg-white rounded-2xl p-8 sm:p-14 shadow-sm border border-slate-200 text-center max-w-3xl mx-auto">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center mx-auto text-2xl mb-5">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <span
+                        class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
+                        Section 4 • Focus: MA EDIN PLO 4
+                    </span>
+                    <h1 class="text-2xl sm:text-3xl font-serif font-bold text-navy-900 mb-4">
+                        Section 4 – Professional Development and Lifelong Learning
+                    </h1>
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-left sm:text-center">
+                        <p id="stub-sec4-text" class="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
+                            "Coming Soon: This section will demonstrate continuous professional growth, research-informed
+                            practice, collaboration, and lifelong learning."
+                        </p>
+                        <button onclick="copyText('stub-sec4-text', this)"
+                            class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-navy-800 bg-white border border-slate-300 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition cursor-pointer">
+                            <i class="fa-regular fa-copy"></i> Copy Stub Text
+                        </button>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-100 text-xs text-slate-400">
+                        Planned Architecture: Section Introduction • Embedded Artifact &amp; Rationale • What/So What/Now
+                        What Reflection • APA Reference List
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================================================================== -->
+            <!-- PAGE 7: SECTION 5 — PROFESSIONAL GROWTH & FUTURE DIRECTIONS (STUB)    -->
+            <!-- ===================================================================== -->
+            <section id="page-sec5" class="page-section hidden">
+                <div
+                    class="bg-white rounded-2xl p-8 sm:p-14 shadow-sm border border-slate-200 text-center max-w-3xl mx-auto">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center mx-auto text-2xl mb-5">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <span
+                        class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
+                        Section 5 • Capstone Synthesis
+                    </span>
+                    <h1 class="text-2xl sm:text-3xl font-serif font-bold text-navy-900 mb-4">
+                        Section 5 – Professional Growth and Future Directions
+                    </h1>
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-left sm:text-center">
+                        <p id="stub-sec5-text" class="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
+                            "Coming Soon: This section will highlight future professional goals, continued innovation, and
+                            the application of learning in educational and professional settings."
+                        </p>
+                        <button onclick="copyText('stub-sec5-text', this)"
+                            class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-navy-800 bg-white border border-slate-300 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition cursor-pointer">
+                            <i class="fa-regular fa-copy"></i> Copy Stub Text
+                        </button>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-100 text-xs text-slate-400">
+                        Planned Architecture: Capstone Synthesis • 5-Year Innovation Roadmap • Concluding Reflection
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-slate-200 py-6 mt-auto">
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <div>
+                    <span class="font-semibold text-slate-700">Yulduz Nuriddinova</span> • Master of Arts in Education &amp;
+                    Innovation (EDIN 6100)
+                </div>
+                <div class="flex items-center gap-4">
+                    <button onclick="switchTab('home')" class="hover:text-navy-800 transition cursor-pointer">Welcome</button>
+                    <button onclick="switchTab('matrix')" class="hover:text-navy-800 transition cursor-pointer">Matrix</button>
+                    <button onclick="switchTab('sec1')" class="hover:text-navy-800 transition cursor-pointer">Sec 1</button>
+                    <button onclick="switchTab('sec2')" class="hover:text-navy-800 transition cursor-pointer">Sec 2</button>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Toast Notification for Clipboard Copy -->
+        <div id="toast"
+            class="fixed bottom-5 right-5 bg-navy-900 text-white text-xs font-medium px-4 py-2.5 rounded-xl shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+            <span id="toast-msg">Copied to clipboard!</span>
+        </div>
+
+        <!-- JavaScript for Tab Navigation, Mobile Menu, and Copy-to-Clipboard -->
+        <script>
+            // Switch active page view
+            function switchTab(pageId) {
+                const sections = document.querySelectorAll('.page-section');
+                sections.forEach(sec => sec.classList.add('hidden'));
+
+                const target = document.getElementById('page-' + pageId);
+                if (target) {
+                    target.classList.remove('hidden');
+                }
+
+                const navBtns = document.querySelectorAll('.nav-btn');
+                navBtns.forEach(btn => {
+                    if (btn.getAttribute('data-nav') === pageId) {
+                        btn.classList.add('bg-navy-800', 'text-white');
+                        btn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+                    } else {
+                        btn.classList.remove('bg-navy-800', 'text-white');
+                        btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+                    }
+                });
+
+                const mobileBtns = document.querySelectorAll('.mobile-nav-btn');
+                mobileBtns.forEach(btn => {
+                    if (btn.getAttribute('data-nav') === pageId) {
+                        btn.classList.add('bg-navy-800', 'text-white');
+                        btn.classList.remove('text-slate-700', 'hover:bg-slate-100');
+                    } else {
+                        btn.classList.remove('bg-navy-800', 'text-white');
+                        btn.classList.add('text-slate-700', 'hover:bg-slate-100');
+                    }
+                });
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Toggle mobile drawer
+            function toggleMobileMenu() {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+            }
+
+            // Show toast helper
+            function showToast(message) {
+                const toast = document.getElementById('toast');
+                const toastMsg = document.getElementById('toast-msg');
+                toastMsg.textContent = message;
+                toast.classList.remove('translate-y-20', 'opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                }, 3200);
+            }
+
+            // Copy helper text using execCommand for iframe compatibility
+            function copyText(elementId, buttonEl) {
+                const textEl = document.getElementById(elementId);
+                if (!textEl) return;
+
+                const rawText = textEl.innerText.replace(/^"|"$/g, '').trim();
+
+                const tempInput = document.createElement('textarea');
+                tempInput.value = rawText;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                showToast('Copied to clipboard!');
+            }
+
+            // Initialize default view on load
+            window.addEventListener('DOMContentLoaded', () => {
+                switchTab('home');
+            });
+        </script>
+    </body>
+
+    </html>
